@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="28717BFD-0B0E-2C66-44FE-A54A09D9A5C9" name="TaskCategory">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>EBB879AD-1984-6C2B-0F2F-C1876A9EA2DE</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TaskCategoryID" id="9ADC9B46-2A50-33F7-080A-1E9D6DD2862A">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>C3D9ECCE-393B-19C7-46B0-20710EB12561</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TaskCategoryName" id="20A4D232-268C-4FC5-C8E3-5206822D1B37">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>9F158AD8-13A4-7592-8D67-229C8054DCAA</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description" id="4780A903-61AA-AEE1-D200-1A5D1BF7E57E">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>06DF9B83-6251-BC4C-6443-8074379CC64A</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9FF70984-4C51-4781-F01E-596E404A073D" name="TaskCategory_PK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>819E4CFB-E3AD-705F-8BB4-83CC439F5425</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9ADC9B46-2A50-33F7-080A-1E9D6DD2862A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="915CD857-0285-7487-85FF-FB49B2E1254D" name="TaskCategory_TaskCategoryName_UN">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>1B6E5448-1FAC-9341-7A54-7C08FBF826EC</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20A4D232-268C-4FC5-C8E3-5206822D1B37"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

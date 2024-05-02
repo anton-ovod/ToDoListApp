@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F5C20036-7AAE-DA25-EB90-65B53184D4BE" name="TaskReminder">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>65127E90-007B-056E-535F-9AD3C6186C42</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TaskReminderID" id="F7FD3985-51EB-5AEF-3508-F5A04F4567DD">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>059135E7-4CDA-FBF6-6C32-9F2E38001F87</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TaskReminderDateTime" id="00A09BE1-252C-CDAD-BC43-4257EC7E7A76">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>3E10D3D2-2340-613A-3115-26367A653E6E</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NotificationPreferences" id="E608E0D9-3D08-E33F-9731-EF43BC381856">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>8AEF53E9-56CB-A5C9-A73C-50570AD86A64</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Task_TaskID" id="7556EBCC-4C24-269F-75DA-8F4C58A7C98D">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>17261D09-CD78-EEB5-3D43-8FA18FB7C70A</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="25D7B72E-5902-ED7D-6D4A-3AE9DC4405BB" referredColumn="7417E2E4-0BFF-E3B7-2FFA-9DBF8F3FBD9D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BABBE79D-9D6B-B195-1A02-E8CE2A3E29B7" name="TaskReminder_PK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>3F206B19-450F-6A58-DA08-CFC0EDC9F9E7</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F7FD3985-51EB-5AEF-3508-F5A04F4567DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EE776EE7-1803-B44C-CBA4-9DDA31473640" name="TaskReminder_Task_FK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>202A6082-DF33-2CCF-7ACF-38F43F09A0C4</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7556EBCC-4C24-269F-75DA-8F4C58A7C98D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

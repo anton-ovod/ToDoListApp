@@ -1,0 +1,201 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6429A09B-B3F2-BDFE-DD05-A13D38BDA308" name="Task">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 13:41:38 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="TaskID" id="CFFB08E8-1772-E218-B10F-2E26A4ACBD66">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 14:31:12 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Title" id="1E5C26C0-822E-70DB-7858-2BC80D9FDA6D">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 14:33:48 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Description" id="0F89CD56-5401-514C-C126-35BE02F2C077">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 14:36:50 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DueDate" id="6AD73B37-65AC-826C-6E8A-E16F854050FD">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 14:37:16 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RecurrenceEndDate" id="6C7939CC-BE8F-4790-CF7C-813DFD8172BA">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:00:04 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="LevelOfTask" id="BD6D956E-1B5F-D7AF-8409-2995F4A27100">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 14:56:42 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RecurrenceTypeID" id="F610D37E-A317-7E91-AD94-137BD25ED494">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:03:17 UTC</createdTime>
+<generatorID>EB0B4088-0217-A300-DD9A-2E12C2CBBF8C</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<referedAttribute>F9207CAD-E185-4209-C549-1DEB2525106A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TaskStatusID" id="F88716A8-AF4C-F244-A06B-78223914E096">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:04:59 UTC</createdTime>
+<generatorID>9FE8F5D3-66A5-6DE4-CF45-97B35381DAA5</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<referedAttribute>56E6E76A-6A82-BF77-1D7D-9869EEBF6AEA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TaskSubCategoryID" id="AA6AC5FB-1E8F-FF6C-E1E2-4692C5477C13">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:06:16 UTC</createdTime>
+<generatorID>BD880B5D-E9F0-A117-7C4F-054D6B75D8D6</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<referedAttribute>6EC40A18-78ED-B076-3F0F-EC1CB26DBA99</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TaskPriorityID" id="9B6A0057-2147-A7C2-A2E4-AA7822BF6F27">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:08:34 UTC</createdTime>
+<generatorID>97624FFF-6F65-17FE-E4C2-E51662C9D275</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<referedAttribute>CC0BFE06-14B3-3981-9B38-ADE398274B46</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="UserID" id="E0215397-BCA9-EB84-9D14-D7373A0ABDA5">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:09:51 UTC</createdTime>
+<generatorID>0589A36C-F52A-ABA5-5645-B8BA7FF17534</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<referedAttribute>E9E3AB94-1F60-C1AF-ED39-5CBDC5F5E028</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ParentTaskID" id="C3D50E43-E8BE-1D53-D5EB-E4A4E0D38473">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:39:55 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="50449699-437E-4761-8CE7-AC0E64B4A1E3" name="Task PK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 14:32:58 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CFFB08E8-1772-E218-B10F-2E26A4ACBD66</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

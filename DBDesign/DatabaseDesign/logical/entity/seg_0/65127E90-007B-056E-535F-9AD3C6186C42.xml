@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="65127E90-007B-056E-535F-9AD3C6186C42" name="TaskReminder">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 14:40:31 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="TaskReminderID" id="059135E7-4CDA-FBF6-6C32-9F2E38001F87">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:22:16 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TaskReminderDateTime" id="3E10D3D2-2340-613A-3115-26367A653E6E">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:24:44 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NotificationPreferences" id="8AEF53E9-56CB-A5C9-A73C-50570AD86A64">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:25:24 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TaskID" id="17261D09-CD78-EEB5-3D43-8FA18FB7C70A">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:39:40 UTC</createdTime>
+<generatorID>202A6082-DF33-2CCF-7ACF-38F43F09A0C4</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<referedAttribute>CFFB08E8-1772-E218-B10F-2E26A4ACBD66</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3F206B19-450F-6A58-DA08-CFC0EDC9F9E7" name="TaskReminder PK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:22:28 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>059135E7-4CDA-FBF6-6C32-9F2E38001F87</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

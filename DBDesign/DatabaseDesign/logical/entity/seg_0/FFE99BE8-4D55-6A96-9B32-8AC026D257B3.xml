@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FFE99BE8-4D55-6A96-9B32-8AC026D257B3" name="RecurrenceType">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 14:55:42 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="RecurrenceTypeID" id="F9207CAD-E185-4209-C549-1DEB2525106A">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:01:41 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RecurrenceTypeName" id="BE743AE8-D0BE-1C8E-781E-305927361A17">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:03:32 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Description" id="8AEE9A14-3E28-4266-4988-EA45596F0DC4">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:04:00 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="70E20803-757C-C759-7E71-E0F17A702BA3" name="RecurrenceType PK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:03:17 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F9207CAD-E185-4209-C549-1DEB2525106A</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="D4D9A74F-CE7C-1C05-FABD-D5DD583FACC3" name="ReccurenceTypeName_UQ">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:35:23 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<newElementsIDs>BE743AE8-D0BE-1C8E-781E-305927361A17</newElementsIDs>
+<usedAttributes>
+<attributeRef>BE743AE8-D0BE-1C8E-781E-305927361A17</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

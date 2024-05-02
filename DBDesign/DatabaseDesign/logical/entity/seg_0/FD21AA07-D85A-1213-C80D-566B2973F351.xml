@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FD21AA07-D85A-1213-C80D-566B2973F351" name="User">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 13:38:43 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="UserID" id="E9E3AB94-1F60-C1AF-ED39-5CBDC5F5E028">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:09:39 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Login" id="BC91E788-F949-F938-ACA3-5C9A12F4D305">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:13:42 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="LastName" id="A15F5235-7482-F8E8-33AE-BBE75C20EA8C">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:09:52 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FirstName" id="13DBEF25-68F9-923F-DF60-5F4FA5C034BC">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:13:25 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Password" id="6408B1DA-C40D-EFC8-4550-4D34FD2FCEBD">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:10:08 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Email" id="01F7AA22-3C50-CB44-B7C9-7CA28CF25B8B">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:11:28 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Phone" id="AC2DFE26-F023-451D-F7FB-C878AAAB5C8D">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:11:55 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C210881A-B5B5-6C38-93AA-76FE5DA4BA8B" name="User PK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:09:51 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E9E3AB94-1F60-C1AF-ED39-5CBDC5F5E028</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="B2C02776-A78D-74E5-C839-14A558C56B25" name="Login_UQ">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:32:14 UTC</createdTime>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<engineerTo>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+</engineerTo>
+<newElementsIDs>BC91E788-F949-F938-ACA3-5C9A12F4D305</newElementsIDs>
+<usedAttributes>
+<attributeRef>BC91E788-F949-F938-ACA3-5C9A12F4D305</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

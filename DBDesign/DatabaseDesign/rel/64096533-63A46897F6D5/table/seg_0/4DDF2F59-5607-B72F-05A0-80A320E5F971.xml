@@ -1,0 +1,261 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4DDF2F59-5607-B72F-05A0-80A320E5F971" name="Task">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>6429A09B-B3F2-BDFE-DD05-A13D38BDA308</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TaskID" id="7417E2E4-0BFF-E3B7-2FFA-9DBF8F3FBD9D">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>CFFB08E8-1772-E218-B10F-2E26A4ACBD66</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Title" id="52D572EA-E033-6240-832C-A24ADA2F4334">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>1E5C26C0-822E-70DB-7858-2BC80D9FDA6D</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description" id="20BE880A-D968-8A65-52D7-B7ABA58EA2DA">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>0F89CD56-5401-514C-C126-35BE02F2C077</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DueDate" id="960D9116-45E4-CB0D-03E5-FDFF8D43767E">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>6AD73B37-65AC-826C-6E8A-E16F854050FD</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RecurrenceEndDate" id="A62651A0-6553-240E-11DF-933959848E51">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>6C7939CC-BE8F-4790-CF7C-813DFD8172BA</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LevelOfTask" id="8B6E5058-E964-8CE9-5CB5-E29A5559B17E">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>BD6D956E-1B5F-D7AF-8409-2995F4A27100</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RecurrenceType_RecurrenceTypeID" id="284B9F6B-224F-0A31-9437-C9EBD4C45964">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>F610D37E-A317-7E91-AD94-137BD25ED494</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E2C1AC83-4179-3A74-C696-D11B6CF54D97" referredColumn="FF64332F-9D26-18F3-9E5F-FEDE4549C2B4"/>
+</associations>
+</Column>
+<Column name="TaskStatus_TaskStatusID" id="F2BEC6D3-7532-CEF0-4F42-BF14BF0A8421">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>F88716A8-AF4C-F244-A06B-78223914E096</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="797544DE-0E17-1A07-3D49-8381027655BE" referredColumn="A1482273-978F-6E40-7ABF-A54CD3C311A9"/>
+</associations>
+</Column>
+<Column name="TaskSubCategory_TaskSubCategoryID" id="86DEF312-8ADB-0955-8654-4A901CC3C0DF">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>AA6AC5FB-1E8F-FF6C-E1E2-4692C5477C13</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4B8ED968-D685-65AC-261A-9DE9FFC5422E" referredColumn="FB996AF4-9ED6-A3EF-926F-21FB80E0BE8C"/>
+</associations>
+</Column>
+<Column name="TaskPriority_TaskPriorityID" id="ED4DF0F4-E5A0-BC3D-7350-F8D6A60A87B5">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>9B6A0057-2147-A7C2-A2E4-AA7822BF6F27</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="692E3A0C-1C49-4955-2EF8-3483E725C8AC" referredColumn="D34BCC5E-9800-C6CD-F7C8-38306E8B21C0"/>
+</associations>
+</Column>
+<Column name="User_UserID" id="80BC9C10-8DE0-D0D8-9264-144075E7C7E8">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>E0215397-BCA9-EB84-9D14-D7373A0ABDA5</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="79DEAE14-9283-ED6C-8256-C0FE1DE449ED" referredColumn="7C289BBA-BFA4-41A1-32B2-1CD8ED7BEBA0"/>
+</associations>
+</Column>
+<Column name="ParentTaskID" id="4368AF48-6A70-0072-6A65-A3454AC1AF5E">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>C3D50E43-E8BE-1D53-D5EB-E4A4E0D38473</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="600A6137-ACE1-5642-874F-54E0F98FD93F" referredColumn="7417E2E4-0BFF-E3B7-2FFA-9DBF8F3FBD9D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FF9F307D-81FA-6292-D7FB-BA541DBB3AC9" name="Task_PK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>50449699-437E-4761-8CE7-AC0E64B4A1E3</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7417E2E4-0BFF-E3B7-2FFA-9DBF8F3FBD9D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="19917F67-3403-458F-FCB1-0291FA7C6C21" name="Task_User_FK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>0589A36C-F52A-ABA5-5645-B8BA7FF17534</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80BC9C10-8DE0-D0D8-9264-144075E7C7E8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5160E13E-AF55-891C-17D7-E4AFF612830E" name="Task_ParentTask_FK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>CC42DE4B-472A-D655-EE09-D1B1ECC96D71</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4368AF48-6A70-0072-6A65-A3454AC1AF5E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0014D770-EC8B-98F4-B7DC-82A75038787F" name="Task_TaskSubCategory_FK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>BD880B5D-E9F0-A117-7C4F-054D6B75D8D6</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="86DEF312-8ADB-0955-8654-4A901CC3C0DF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="83CFAFFE-FB1B-CB25-CD95-9CAC3797B4C8" name="Task_TaskPriority_FK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>97624FFF-6F65-17FE-E4C2-E51662C9D275</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ED4DF0F4-E5A0-BC3D-7350-F8D6A60A87B5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E4DCE4C0-ACB2-4678-1C75-49D9064F328A" name="Task_TaskStatus_FK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>9FE8F5D3-66A5-6DE4-CF45-97B35381DAA5</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2BEC6D3-7532-CEF0-4F42-BF14BF0A8421"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="34586350-78BE-74D7-1922-A57EA1CA4298" name="Task_RecurrenceType_FK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>EB0B4088-0217-A300-DD9A-2E12C2CBBF8C</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="284B9F6B-224F-0A31-9437-C9EBD4C45964"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

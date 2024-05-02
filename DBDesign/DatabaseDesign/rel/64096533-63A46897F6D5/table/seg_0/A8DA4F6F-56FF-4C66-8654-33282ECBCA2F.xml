@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A8DA4F6F-56FF-4C66-8654-33282ECBCA2F" name="RecurrenceType">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>FFE99BE8-4D55-6A96-9B32-8AC026D257B3</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="RecurrenceTypeID" id="FF64332F-9D26-18F3-9E5F-FEDE4549C2B4">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>F9207CAD-E185-4209-C549-1DEB2525106A</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RecurrenceTypeName" id="565D49E3-574C-98D6-4253-7DB4531E794E">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>BE743AE8-D0BE-1C8E-781E-305927361A17</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description" id="1BDCD802-D9B5-C61A-3082-F9AA374D7EDB">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>8AEE9A14-3E28-4266-4988-EA45596F0DC4</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="39F289FE-A4D8-080C-903E-B1EE263CB74A" name="RecurrenceType_PK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>70E20803-757C-C759-7E71-E0F17A702BA3</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FF64332F-9D26-18F3-9E5F-FEDE4549C2B4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D8A14F58-5786-2189-B13F-7F5592BAA519" name="RecurrenceType_RecurrenceTypeName_UN">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>D4D9A74F-CE7C-1C05-FABD-D5DD583FACC3</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="565D49E3-574C-98D6-4253-7DB4531E794E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

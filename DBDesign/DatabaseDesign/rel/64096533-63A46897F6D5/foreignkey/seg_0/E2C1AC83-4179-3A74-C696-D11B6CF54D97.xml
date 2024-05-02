@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E2C1AC83-4179-3A74-C696-D11B6CF54D97" containerWithKeyObject="4DDF2F59-5607-B72F-05A0-80A320E5F971" localFKIndex="34586350-78BE-74D7-1922-A57EA1CA4298" name="Task_RecurrenceType_FK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-04-27 15:42:00 UTC</createdTime>
+<generatorID>EB0B4088-0217-A300-DD9A-2E12C2CBBF8C</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<referredTableLongName>RecurrenceType</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A8DA4F6F-56FF-4C66-8654-33282ECBCA2F</referredTableID>
+<keyObject>39F289FE-A4D8-080C-903E-B1EE263CB74A</keyObject>
+<referredKeyID>39F289FE-A4D8-080C-903E-B1EE263CB74A</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>RecurrenceTypeID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
