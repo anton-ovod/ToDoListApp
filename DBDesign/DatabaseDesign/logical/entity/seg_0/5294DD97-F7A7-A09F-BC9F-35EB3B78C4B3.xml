@@ -60,8 +60,9 @@
 <createdBy>jey_hosok</createdBy>
 <createdTime>2024-04-27 15:04:57 UTC</createdTime>
 <ownerDesignName>DatabaseDesign</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
@@ -72,8 +73,9 @@
 <createdBy>jey_hosok</createdBy>
 <createdTime>2024-04-27 15:34:59 UTC</createdTime>
 <ownerDesignName>DatabaseDesign</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="false"/>
 </engineerTo>
 <newElementsIDs>725811D4-8A03-5B11-8A09-7185DF1DDE09</newElementsIDs>
 <usedAttributes>

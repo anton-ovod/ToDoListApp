@@ -67,7 +67,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>2</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -75,8 +75,9 @@
 <createdBy>jey_hosok</createdBy>
 <createdTime>2024-04-27 15:06:15 UTC</createdTime>
 <ownerDesignName>DatabaseDesign</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
@@ -87,8 +88,9 @@
 <createdBy>jey_hosok</createdBy>
 <createdTime>2024-04-27 15:35:47 UTC</createdTime>
 <ownerDesignName>DatabaseDesign</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
+<item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="false"/>
 </engineerTo>
 <newElementsIDs>391B97A6-0477-C1D5-9527-EE9FC1BACDE9</newElementsIDs>
 <usedAttributes>
