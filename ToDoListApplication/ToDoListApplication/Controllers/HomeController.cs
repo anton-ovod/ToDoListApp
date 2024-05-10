@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using System.Diagnostics;
 using ToDoListApplication.Models;
 using ToDoListApplication.ViewModels;
@@ -30,6 +29,19 @@ namespace ToDoListApplication.Controllers
             viewModel.Categories = await _categoryrepo.GetAllCategories();
             
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> InsertTask(IndexViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var newTask = new TaskModel(model.Title, model.Description, model.DueDate, model.TaskCategoryID);
+                await _taskrepo.Insert(newTask);
+                return RedirectToAction("Index");
+            }
+
+            return View("Index", model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

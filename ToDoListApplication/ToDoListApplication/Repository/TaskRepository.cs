@@ -28,9 +28,17 @@ namespace ToDoListApplication.Repository
             }
         }
 
-        public Task Insert(TaskModel task)
+        public async Task Insert(TaskModel task)
         {
-            throw new NotImplementedException();
+            object taskToInsert = new { task.Title, task.Description, task.DueDate, task.TaskStatusID, task.TaskCategoryID};
+
+            var query = "insert into Task (Title, Description, DueDate, TaskStatusID, TaskCategoryID)" +
+                " values (@Title, @Description, @DueDate, @TaskStatusID, @TaskCategoryID)";
+
+            using( var connection = _dbcontext.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, taskToInsert);
+            }
         }
 
         public Task Update(TaskModel task)
