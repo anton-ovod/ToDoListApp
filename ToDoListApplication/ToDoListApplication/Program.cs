@@ -1,10 +1,13 @@
 using ToDoListApplication.Models.Data;
+using ToDoListApplication.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddSingleton<DapperDBContext>();
+builder.Services.AddTransient<ITaskRepository, TaskRepository>();
 
 var app = builder.Build();
 
