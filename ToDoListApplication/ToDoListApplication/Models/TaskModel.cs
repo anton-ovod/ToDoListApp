@@ -4,7 +4,7 @@ namespace ToDoListApplication.Models
 {
     public class TaskModel
     {
-        public int ID { get; set; }
+        public int TaskID { get; set; }
         [Display(Name="Title: ")]
         [Required(ErrorMessage ="You have to enter task title!")]
         [RegularExpression("^.{0,100}$\r\n", ErrorMessage ="Your title is too long!")]

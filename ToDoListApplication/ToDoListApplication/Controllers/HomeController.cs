@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.Diagnostics;
 using ToDoListApplication.Models;
+using ToDoListApplication.ViewModels;
 using ToDoListApplication.Repository;
 
 namespace ToDoListApplication.Controllers
@@ -10,21 +11,26 @@ namespace ToDoListApplication.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ITaskRepository _taskrepo;
+        private readonly ICategoryRepository _categoryrepo;
 
         public HomeController(ILogger<HomeController> logger,
-                              ITaskRepository taskRepository)
+                              ITaskRepository taskRepository,
+                              ICategoryRepository categoryRepository)
         {
             _logger = logger;
             _taskrepo = taskRepository;
+            _categoryrepo = categoryRepository;
         }
 
         public async Task<IActionResult> Index()
         {
-            var tasklist = await _taskrepo.GetAllTasks();
-            
-            return View();
-        }
+            var viewModel = new IndexViewModel();
 
+            viewModel.Tasks = await _taskrepo.GetAllTasks();
+            viewModel.Categories = await _categoryrepo.GetAllCategories();
+            
+            return View(viewModel);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
