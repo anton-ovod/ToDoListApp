@@ -13,7 +13,6 @@ namespace ToDoListApplication.Models.Data
         {
             _configuration = configuration;
             _connectionString = _configuration.GetConnectionString("DatabaseConnection");
-            
         }
 
         public IDbConnection CreateConnection() => new SqlConnection(_connectionString);

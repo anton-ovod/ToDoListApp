@@ -1,7 +1,10 @@
+using ToDoListApplication.Models.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<DapperDBContext>();
 
 var app = builder.Build();
 
