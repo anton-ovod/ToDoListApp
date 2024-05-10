@@ -4,6 +4,11 @@ namespace ToDoListApplication.Repository
 {
     public interface ITaskRepository
     {
-        Task<List<TaskModel>> GetAllTasks();
+        Task<IEnumerable<TaskModel>> GetAllTasks();
+
+        Task Insert(TaskModel task);
+        Task Update(TaskModel task);
+        Task Delete(int  id);
+
     }
 }

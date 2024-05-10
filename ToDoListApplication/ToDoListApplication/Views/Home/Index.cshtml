@@ -1,8 +1,35 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model TaskModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="d-flex w-75 px-2 py-2 justify-content-center border border-2 rounded-2 border-primary">
+    <form class="w-100 d-flex" asp-controller="Home" asp-action="InsertTask">
+        <div class="d-flex flex-column container-fluid gap-3">
+            <div class="container-fluid row align-items-center">
+                <label class="fs-3 w-25" asp-for="Title"></label>
+                <input class="w-75 h-100 fs-3" asp-for="Title" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="container-fluid row align-items-center">
+                <label class="fs-3 w-25" asp-for="DueDate"></label>
+                <input class="w-auto h-100 fs-4" asp-for="DueDate" />
+
+                <label class="fs-4 w-auto offset-1" asp-for="TaskCategoryID"></label>
+                <select asp-for="TaskCategoryID" class=" w-25 form-select fs-4">
+                    <option value="" selected>Choose Category</option>
+                </select>
+            </div>
+            <div class="container-fluid row align-items-center">
+                <label class="fs-3 w-25 align-self-start" asp-for="Description"></label>
+                <textarea class="w-75 fs-4 " rows="5" asp-for="Description"></textarea>
+            </div>
+            <div class="container-fluid row align-items justify-content-center center">
+                <button class="btn btn-primary w-25 fs-4" type="submit">Add task to List</button>
+            </div>
+        </div>
+    </form>
+
+
+
 </div>
