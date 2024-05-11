@@ -1,4 +1,6 @@
 ﻿using Dapper;
+using Microsoft.VisualBasic;
+using System.Threading.Tasks;
 using ToDoListApplication.Models;
 using ToDoListApplication.Models.Data;
 
@@ -13,14 +15,19 @@ namespace ToDoListApplication.Repository
             _dbcontext = dbcontext;
         }
 
-        public Task Delete(int id)
+        public async Task Delete(TaskModel task)
         {
-            throw new NotImplementedException();
+            var query = "Delete From Task Where TaskID=@TaskID";
+
+            using(var connection = _dbcontext.CreateConnection()) 
+            {
+                await connection.ExecuteAsync(query, task);
+            }
         }
 
         public async Task<IEnumerable<TaskModel>> GetAllTasks()
         {
-            var query = "Select Title, Description, DueDate, TaskStatusID, TaskCategoryID from Task";
+            var query = "Select TaskID, Title, Description, DueDate, TaskStatusID, TaskCategoryID from Task";
             using(var connection = _dbcontext.CreateConnection())
             {
                 var tasklist = await connection.QueryAsync<TaskModel>(query);
@@ -30,20 +37,26 @@ namespace ToDoListApplication.Repository
 
         public async Task Insert(TaskModel task)
         {
-            object taskToInsert = new { task.Title, task.Description, task.DueDate, task.TaskStatusID, task.TaskCategoryID};
-
             var query = "insert into Task (Title, Description, DueDate, TaskStatusID, TaskCategoryID)" +
                 " values (@Title, @Description, @DueDate, @TaskStatusID, @TaskCategoryID)";
 
             using( var connection = _dbcontext.CreateConnection())
             {
-                await connection.ExecuteAsync(query, taskToInsert);
+                await connection.ExecuteAsync(query, task);
             }
         }
 
-        public Task Update(TaskModel task)
+        public async Task Update(TaskModel task)
         {
-            throw new NotImplementedException();
+            var query = "UPDATE Task "+
+                        "SET Title=@Title, Description=@Description, DueDate=@DueDate, TaskStatusID=@TaskStatusID, TaskCategoryID=@TaskCategoryID "+
+                        "WHERE TaskID=@TaskID";
+
+            using(var connection = _dbcontext.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, task);
+            }
+
         }
     }
 }

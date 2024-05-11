@@ -11,14 +11,17 @@ namespace ToDoListApplication.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ITaskRepository _taskrepo;
         private readonly ICategoryRepository _categoryrepo;
+        private readonly ITaskStatusRepository _taskstatusrepo;
 
         public HomeController(ILogger<HomeController> logger,
                               ITaskRepository taskRepository,
-                              ICategoryRepository categoryRepository)
+                              ICategoryRepository categoryRepository,
+                              ITaskStatusRepository taskStatusRepository)
         {
             _logger = logger;
             _taskrepo = taskRepository;
             _categoryrepo = categoryRepository;
+            _taskstatusrepo = taskStatusRepository;
         }
 
         public async Task<IActionResult> Index()
@@ -27,7 +30,8 @@ namespace ToDoListApplication.Controllers
 
             viewModel.Tasks = await _taskrepo.GetAllTasks();
             viewModel.Categories = await _categoryrepo.GetAllCategories();
-            
+            viewModel.Statuses = await _taskstatusrepo.GetAllStatuses();
+
             return View(viewModel);
         }
 
@@ -42,6 +46,22 @@ namespace ToDoListApplication.Controllers
             }
 
             return View("Index", model);
+        }
+
+
+        public async Task<IActionResult> ChangeStatus(TaskModel task)
+        {
+            task.TaskStatusID += 1;
+            await _taskrepo.Update(task);
+
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> DeleteTask(TaskModel task)
+        {
+            await _taskrepo.Delete(task);
+
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

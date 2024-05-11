@@ -21,5 +21,7 @@ namespace ToDoListApplication.ViewModels
         public IEnumerable<TaskModel> Tasks { get; set; } = [];
 
         public IEnumerable<CategoryModel> Categories { get; set; } = [];
+
+        public IEnumerable<TaskStatusModel> Statuses { get; set; } = [];
     }
 }

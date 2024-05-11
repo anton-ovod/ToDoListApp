@@ -9,6 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<DapperDBContext>();
 builder.Services.AddTransient<ITaskRepository, TaskRepository>();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+builder.Services.AddTransient<ITaskStatusRepository, TaskStatusRepository>();
 
 var app = builder.Build();
 

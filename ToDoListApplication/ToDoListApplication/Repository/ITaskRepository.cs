@@ -8,7 +8,7 @@ namespace ToDoListApplication.Repository
 
         Task Insert(TaskModel task);
         Task Update(TaskModel task);
-        Task Delete(int  id);
+        Task Delete(TaskModel task);
 
     }
 }
