@@ -64,6 +64,13 @@ namespace ToDoListApplication.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task<IActionResult> UpdateTask(TaskModel task)
+        {
+            await _taskrepo.Update(task);
+
+            return RedirectToAction("Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

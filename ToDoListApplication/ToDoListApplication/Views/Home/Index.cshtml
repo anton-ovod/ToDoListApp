@@ -8,6 +8,12 @@
     .description{
         display: none;
     }
+    .updateform{
+        display: none;
+    }
+    .main{
+        display: flex;
+    }
 </style>
 
 <div class="d-flex px-2 py-4 justify-content-center border border-2 rounded-2 border-primary" style="width: 80%">
@@ -57,7 +63,8 @@
 
     @foreach(var task in Model.Tasks.Where(task => task.TaskStatusID != 2) )
     {
-        <div class="container-fluid pe-0 align-items-center row border border-1 rounded-2 border-secondary" style="height: auto; min-height: 80px;">
+        <div id="id-@task.TaskID" class="container-fluid d-flex px-0 border border-1 rounded-2 border-secondary" style="height: auto; min-height: 80px;">
+            <div class="container-fluid row px-0 mx-0 align-items-center main">
                 <div class="fs-4 m-0 col text-center" style="cursor: pointer" onclick="toggleDescription(this)">
                     @task.Title 
                 </div>
@@ -68,7 +75,7 @@
                     @if(task.DueDate is not null)
                     {
                         <div class="d-flex align-items-center justify-content-center">
-                            <img src="./date.svg" width="35px" />
+                            <img src="./date.svg" width="35" />
                         </div>
                         <div class="text-center">
                             @task.DueDate.Value.ToShortDateString()
@@ -83,11 +90,11 @@
                 </div>
 
                 <div class="col text-center">
-                    <a class="btn border-0 fs-4" href="@Url.Action("UpdateTask", "Home", task)">
-                        <img src="./pencil.svg" width="25px" />
-                    </a>
+                    <div class="btn border-0 fs-4" onclick="toggleUpdateForm(@task.TaskID)">
+                        <img src="./pencil.svg" width="25" />
+                    </div>
                     <a class="btn border-0 fs-4" href="@Url.Action("DeleteTask", "Home", task)">
-                        <img src="./delete.svg" width="25px" />
+                        <img src="./delete.svg" width="25" />
                     </a>
                 </div>
 
@@ -99,11 +106,51 @@
 
                 @if (task.Description is not null)
                 {
-                    <div class="container row border-primary border-top border-2 description my-2">
+                    <div class="container row border-primary border-top border-3 mx-0 description my-2">
                         <span class="fs-3 fw-bold ">Description: </span>
                         <p class="fs-4" style="text-align: justify">@task.Description</p>
                     </div>
                 }
+            </div>
+
+            <div class="updateform container-fluid row mx-0 align-items-center py-3">
+                <form asp-controller="Home" asp-action="UpdateTask" class="container-fluid d-flex flex-column gap-2 align-self-stretch">
+                    <div class="container-fluid d-flex flex-row gap-3 align-items-center align-self-stretch px-0">
+                        <input asp-for="@task.Title" value="@task.Title" class="col m-0 fs-4" />
+                    
+                        <select asp-for="@task.TaskCategoryID" class="col form-select fs-4 m-0">
+                            <option value="" selected>Choose Category</option>
+                            @foreach (var category in Model.Categories)
+                            {
+                                @if(@category.TaskCategoryID == task.TaskCategoryID)
+                                {
+                                    <option value="@category.TaskCategoryID" selected>@category.TaskCategoryName</option>
+                                }
+                                else
+                                {
+                                    <option value="@category.TaskCategoryID">@category.TaskCategoryName</option>
+                                }
+                            }
+                        </select>
+                        @if(task.DueDate is not null){
+                            <input class="col fs-4 h-auto w-auto m-0" asp-for="@task.DueDate" value=@task.DueDate.Value.ToString("yyyy-mm-ddTHH:mm")/>
+                        }
+                        else
+                        {
+                            <input class="col fs-4 h-auto w-auto m-0" asp-for="@task.DueDate" />
+
+                        }
+                        <input type="submit" class="btn btn-primary text-center fs-5 m-0 col h-100" value="Apply Changes"/>
+                        <input type="hidden" asp-for="@task.TaskID" value="@task.TaskID" />
+                    </div>
+                    <div class="container-fluid d-flex flex-column gap-3 align-items-center align-self-stretch px-0">
+                        <span asp-validation-for="@task.Title"></span>
+                        <textarea asp-for="@task.Description" class="fs-4 w-100" rows="5" value="@task.Description"></textarea>
+                    </div>
+                </form>
+
+
+            </div>
         </div>
     }
 </div>
@@ -125,7 +172,7 @@
                 @if (task.DueDate is not null)
                 {
                     <div class="d-flex align-items-center justify-content-center">
-                        <img src="./date.svg" width="35px" />
+                        <img src="./date.svg" width="35" />
                     </div>
                     <div class="text-center">
                         @task.DueDate.Value.ToShortDateString()
@@ -140,7 +187,7 @@
             </div>
             <div class="col text-center">
                 <a class="btn border-0 fs-4" href="@Url.Action("DeleteTask", "Home", task)">
-                    <img src="./delete.svg" width="25px" />
+                    <img src="./delete.svg" width="25" />
                 </a>
             </div>
             <div class="col d-flex align-items-center justify-content-center fs-4 align-self-stretch px-0 text-center bg-success" style="color: white">
@@ -169,4 +216,26 @@
             description.style.display = 'none';
         }
     }
+
+function toggleUpdateForm(taskID) {
+    console.log("Toggling update form for task ID:", taskID);
+
+        var updateform = document.querySelector("#id-" + taskID + " .updateform");
+        var main = document.querySelector("#id-" + taskID + " .main");
+
+    console.log("Update Form:", updateform);
+    console.log("Main Section:", main);
+
+    if (updateform && main) {
+        if (updateform.style.display === 'none' || updateform.style.display === '') {
+            updateform.style.display = 'flex';
+            main.style.display = 'none';
+        } else {
+            main.style.display = 'flex';
+            updateform.style.display = 'none';
+        }
+    } else {
+        console.error("Update form or main section not found.");
+    }
+}
 </script>
