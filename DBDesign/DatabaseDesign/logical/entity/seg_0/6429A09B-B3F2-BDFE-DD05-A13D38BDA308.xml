@@ -83,15 +83,15 @@
 <dataTypePrecision>1</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="TaskSubCategoryID" id="AA6AC5FB-1E8F-FF6C-E1E2-4692C5477C13">
+<Attribute name="TaskCategoryID" id="BA672C4B-19D3-861A-DA62-BFA411BF0E61">
 <createdBy>jey_hosok</createdBy>
-<createdTime>2024-04-27 15:06:16 UTC</createdTime>
-<generatorID>BD880B5D-E9F0-A117-7C4F-054D6B75D8D6</generatorID>
+<createdTime>2024-05-12 14:45:25 UTC</createdTime>
+<generatorID>BBAB9B14-C269-47CC-93E0-BDD97F4D9C4E</generatorID>
 <ownerDesignName>DatabaseDesign</ownerDesignName>
 <engineerTo>
 <item key="64096533-8DB7-6594-9C97-63A46897F6D5" value="true"/>
 </engineerTo>
-<referedAttribute>6EC40A18-78ED-B076-3F0F-EC1CB26DBA99</referedAttribute>
+<referedAttribute>C3D9ECCE-393B-19C7-46B0-20710EB12561</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>

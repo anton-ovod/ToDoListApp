@@ -73,20 +73,20 @@
 <colAssociation fkAssociation="797544DE-0E17-1A07-3D49-8381027655BE" referredColumn="A1482273-978F-6E40-7ABF-A54CD3C311A9"/>
 </associations>
 </Column>
-<Column name="TaskSubCategory_TaskSubCategoryID" id="86DEF312-8ADB-0955-8654-4A901CC3C0DF">
+<Column name="TaskCategory_TaskCategoryID" id="9E9B65C1-57F8-3750-174E-B70DE13E9DCA">
 <createdBy>jey_hosok</createdBy>
-<createdTime>2024-04-27 15:42:00 UTC</createdTime>
-<generatorID>AA6AC5FB-1E8F-FF6C-E1E2-4692C5477C13</generatorID>
+<createdTime>2024-05-12 14:46:23 UTC</createdTime>
+<generatorID>BA672C4B-19D3-861A-DA62-BFA411BF0E61</generatorID>
 <ownerDesignName>DatabaseDesign</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>2</dataTypePrecision>
-<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="4B8ED968-D685-65AC-261A-9DE9FFC5422E" referredColumn="FB996AF4-9ED6-A3EF-926F-21FB80E0BE8C"/>
+<colAssociation fkAssociation="B771C892-3660-0C3C-85EC-C16B5DAA5A06" referredColumn="9ADC9B46-2A50-33F7-080A-1E9D6DD2862A"/>
 </associations>
 </Column>
 </columns>
@@ -103,17 +103,6 @@
 <colUsage columnID="7417E2E4-0BFF-E3B7-2FFA-9DBF8F3FBD9D"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="0014D770-EC8B-98F4-B7DC-82A75038787F" name="Task_TaskSubCategory_FK">
-<createdBy>jey_hosok</createdBy>
-<createdTime>2024-04-27 15:42:00 UTC</createdTime>
-<generatorID>BD880B5D-E9F0-A117-7C4F-054D6B75D8D6</generatorID>
-<ownerDesignName>DatabaseDesign</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="86DEF312-8ADB-0955-8654-4A901CC3C0DF"/>
-</indexColumnUsage>
-</ind_PK_UK>
 <ind_PK_UK id="E4DCE4C0-ACB2-4678-1C75-49D9064F328A" name="Task_TaskStatus_FK">
 <createdBy>jey_hosok</createdBy>
 <createdTime>2024-04-27 15:42:00 UTC</createdTime>
@@ -123,6 +112,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="F2BEC6D3-7532-CEF0-4F42-BF14BF0A8421"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BBAFCB06-6E80-00F8-4C46-6EAA218A8FC4" name="Task_TaskCategory_FK">
+<createdBy>jey_hosok</createdBy>
+<createdTime>2024-05-12 14:46:23 UTC</createdTime>
+<generatorID>BBAB9B14-C269-47CC-93E0-BDD97F4D9C4E</generatorID>
+<ownerDesignName>DatabaseDesign</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E9B65C1-57F8-3750-174E-B70DE13E9DCA"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
