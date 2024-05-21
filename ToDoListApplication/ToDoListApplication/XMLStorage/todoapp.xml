@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ToDoApplication>
+  <Categories>
+    <Category>
+      <ID>1</ID>
+      <Name>Personal Tasks</Name>
+      <Description>Tasks related to personal errands, chores, appointments, and activities.</Description>
+    </Category>
+    <Category>
+      <ID>2</ID>
+      <Name>Work Projects</Name>
+      <Description>Tasks related to ongoing projects, deadlines, meetings, and assignments at work.</Description>
+    </Category>
+    <Category>
+      <ID>3</ID>
+      <Name>Health and Fitness</Name>
+      <Description>Tasks related to exercise routines, dietary plans, medical appointments, and health goals.</Description>
+    </Category>
+    <Category>
+      <ID>4</ID>
+      <Name>Financial Management</Name>
+      <Description>Tasks related to budgeting, bill payments, investments, savings goals, and financial planning.</Description>
+    </Category>
+    <Category>
+      <ID>5</ID>
+      <Name>Education and Learning</Name>
+      <Description>Tasks related to coursework, skill development, research, and educational goals.</Description>
+    </Category>
+    <Category>
+      <ID>6</ID>
+      <Name>Social Activities</Name>
+      <Description>Tasks related to social events, gatherings, networking, and spending time with friends and family.</Description>
+    </Category>
+    <Category>
+      <ID>7</ID>
+      <Name>Travel Planning</Name>
+      <Description>Tasks related to trip itineraries, bookings, packing lists, and travel arrangements.</Description>
+    </Category>
+    <Category>
+      <ID>8</ID>
+      <Name>Home Maintenance</Name>
+      <Description>Tasks related to home repairs, renovations, cleaning schedules, and household organization.</Description>
+    </Category>
+    <Category>
+      <ID>9</ID>
+      <Name>Entertainment</Name>
+      <Description>Tasks related to leisure activities, hobbies, movies, concerts, books to read, and games to play.</Description>
+    </Category>
+    <Category>
+      <ID>10</ID>
+      <Name>Goal Setting</Name>
+      <Description>Tasks related to setting, tracking, and achieving short-term and long-term goals in various aspects of life.</Description>
+    </Category>
+  </Categories>
+  <Statuses>
+    <Status>
+      <ID>0</ID>
+      <Name>To Do</Name>
+      <Description>The task is open and actionable, but perhaps not actively In progress</Description>
+    </Status>
+    <Status>
+      <ID>1</ID>
+      <Name>In Progress</Name>
+      <Description>The task is actively being worked on</Description>
+    </Status>
+    <Status>
+      <ID>2</ID>
+      <Name>Completed</Name>
+      <Description>The work required for the task to be finished has been done in full.</Description>
+    </Status>
+  </Statuses>
+  <Tasks>
+    <Task>
+      <ID>0</ID>
+      <Title>Test change name</Title>
+      <Description>dtdgdg</Description>
+      <CategoryID>1</CategoryID>
+      <StatusID>0</StatusID>
+    </Task>
+  </Tasks>
+</ToDoApplication>
