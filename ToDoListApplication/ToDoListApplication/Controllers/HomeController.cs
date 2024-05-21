@@ -3,6 +3,7 @@ using System.Diagnostics;
 using ToDoListApplication.Models;
 using ToDoListApplication.ViewModels;
 using ToDoListApplication.Repository;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ToDoListApplication.Controllers
 {
@@ -36,16 +37,18 @@ namespace ToDoListApplication.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertTask(IndexViewModel model)
+        public async Task<IActionResult> InsertTask(IndexViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                var newTask = new TaskModel(model.Title, model.Description, model.DueDate, model.TaskCategoryID);
-                await _taskrepo.Insert(newTask);
+                await _taskrepo.Insert(viewModel.Task);
                 return RedirectToAction("Index");
             }
+            viewModel.Categories = await _categoryrepo.GetAllCategories();
+            viewModel.Tasks = await _taskrepo.GetAllTasks();
+            viewModel.Statuses = await _taskstatusrepo.GetAllStatuses();
 
-            return View("Index", model);
+            return View("Index", viewModel);
         }
 
 
