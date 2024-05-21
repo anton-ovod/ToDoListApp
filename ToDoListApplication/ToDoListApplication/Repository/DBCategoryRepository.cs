@@ -4,10 +4,10 @@ using ToDoListApplication.Models.Data;
 
 namespace ToDoListApplication.Repository
 {
-    public class CategoryRepository : ICategoryRepository
+    public class DBCategoryRepository : ICategoryRepository
     {
         private readonly DapperDBContext _dbcontext;
-        public CategoryRepository(DapperDBContext dbcontext)
+        public DBCategoryRepository(DapperDBContext dbcontext)
         {
             _dbcontext = dbcontext;
         }

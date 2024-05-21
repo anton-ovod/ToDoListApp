@@ -6,11 +6,11 @@ using ToDoListApplication.Models.Data;
 
 namespace ToDoListApplication.Repository
 {
-    public class TaskRepository : ITaskRepository
+    public class DBTaskRepository : ITaskRepository
     {
         private readonly DapperDBContext _dbcontext;
 
-        public TaskRepository(DapperDBContext dbcontext)
+        public DBTaskRepository(DapperDBContext dbcontext)
         {
             _dbcontext = dbcontext;
         }

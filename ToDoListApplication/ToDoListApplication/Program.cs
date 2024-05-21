@@ -7,9 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<DapperDBContext>();
-builder.Services.AddTransient<ITaskRepository, TaskRepository>();
-builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-builder.Services.AddTransient<ITaskStatusRepository, TaskStatusRepository>();
+builder.Services.AddTransient<ITaskRepository, DBTaskRepository>();
+builder.Services.AddTransient<ICategoryRepository, DBCategoryRepository>();
+builder.Services.AddTransient<ITaskStatusRepository, DBTaskStatusRepository>();
 
 var app = builder.Build();
 
