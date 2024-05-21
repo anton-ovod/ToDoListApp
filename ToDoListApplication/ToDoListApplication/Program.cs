@@ -1,3 +1,4 @@
+using ToDoListApplication.Factory;
 using ToDoListApplication.Models.Data;
 using ToDoListApplication.Repository;
 
@@ -8,6 +9,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<DapperDBContext>();
 builder.Services.AddSingleton<XMLStorageContext>();
+builder.Services.AddSingleton<RepositoryFactory>();
 builder.Services.AddTransient<ITaskRepository, XMLTaskRepository>();
 builder.Services.AddTransient<ICategoryRepository, XMLCategoryRepository>();
 builder.Services.AddTransient<ITaskStatusRepository, XMLTaskStatusRepository>();

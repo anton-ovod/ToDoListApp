@@ -16,7 +16,15 @@
     }
 </style>
 
-<div class="d-flex px-2 py-4 justify-content-center border border-2 rounded-2 border-primary" style="width: 80%">
+<div class="d-flex px-2 py-4 justify-content-center align-items-center border border-2 rounded-2 border-primary flex-column" style="width: 80%">
+    <form class="d-flex fs-4 m-2" method="post" asp-action="ChangeStorageType" asp-controller="Home">
+        <select asp-for="StorageType">
+            <option value="">Select Storage Type</option>
+            <option value="Database">Database</option>
+            <option value="XML">XML</option>
+        </select>
+        <button type="submit">Set Storage</button>
+    </form>
     <form class="w-100 d-flex" asp-controller="Home" asp-action="InsertTask">
         <div class="d-flex flex-column container-fluid gap-3">
             <div class="container-fluid row align-items-center">
@@ -44,6 +52,7 @@
             <input type="hidden" asp-for="@Model.Categories" value="@Model.Categories"/>
             <input type="hidden" asp-for="@Model.Tasks" value="@Model.Tasks" />
             <input type="hidden" asp-for="@Model.Statuses" value="@Model.Statuses" />
+            <input type="hidden" asp-for="@Model.StorageType" value="@Model.StorageType" />
             <div class="container-fluid row align-items justify-content-center center">
                 <input type="submit" class="btn btn-primary w-25 fs-4" value="Add task" />
             </div>

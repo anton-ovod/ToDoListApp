@@ -6,6 +6,7 @@ namespace ToDoListApplication.ViewModels
     public class IndexViewModel
     {
         public TaskModel Task { get; set; } = new ();
+        public string StorageType { get; set; }
 
         public IEnumerable<TaskModel> Tasks { get; set; } = [];
 

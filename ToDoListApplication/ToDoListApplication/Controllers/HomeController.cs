@@ -2,76 +2,105 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using ToDoListApplication.Models;
 using ToDoListApplication.ViewModels;
-using ToDoListApplication.Repository;
-using System.Reflection.Metadata.Ecma335;
+using ToDoListApplication.Factory;
+using Microsoft.Identity.Client.Extensions.Msal;
 
 namespace ToDoListApplication.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ITaskRepository _taskrepo;
-        private readonly ICategoryRepository _categoryrepo;
-        private readonly ITaskStatusRepository _taskstatusrepo;
+        private readonly RepositoryFactory _repositoryFactory;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger,
-                              ITaskRepository taskRepository,
-                              ICategoryRepository categoryRepository,
-                              ITaskStatusRepository taskStatusRepository)
+        public HomeController(IConfiguration configuration, ILogger<HomeController> logger, RepositoryFactory repositoryFactory)
         {
             _logger = logger;
-            _taskrepo = taskRepository;
-            _categoryrepo = categoryRepository;
-            _taskstatusrepo = taskStatusRepository;
+            _repositoryFactory = repositoryFactory;
+            _configuration = configuration;
         }
 
         public async Task<IActionResult> Index()
         {
+            var storageType = _configuration["StorageType"];
+            var repositoryStrategy = _repositoryFactory.CreateRepositoryStrategy(storageType);
+            var taskRepository = repositoryStrategy.CreateTaskRepository();
+            var categoryRepository = repositoryStrategy.CreateCategoryRepository();
+            var statusRepository = repositoryStrategy.CreateTaskStatusRepository();
+
             var viewModel = new IndexViewModel();
 
-            viewModel.Tasks = await _taskrepo.GetAllTasks();
-            viewModel.Categories = await _categoryrepo.GetAllCategories();
-            viewModel.Statuses = await _taskstatusrepo.GetAllStatuses();
+            viewModel.Tasks = await taskRepository.GetAllTasks();
+            viewModel.Categories = await categoryRepository.GetAllCategories();
+            viewModel.Statuses = await statusRepository.GetAllStatuses();
+            viewModel.StorageType = storageType;
 
             return View(viewModel);
         }
 
         [HttpPost]
+        public IActionResult ChangeStorageType(string storageType)
+        {
+            if(!string.IsNullOrEmpty(storageType))
+            {
+                _configuration["StorageType"] = storageType;
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
         public async Task<IActionResult> InsertTask(IndexViewModel viewModel)
         {
+            var storageType = _configuration["StorageType"];
+            var repositoryStrategy = _repositoryFactory.CreateRepositoryStrategy(storageType);
+            var taskRepository = repositoryStrategy.CreateTaskRepository();
             if (ModelState.IsValid)
             {
-                await _taskrepo.Insert(viewModel.Task);
+                await taskRepository.Insert(viewModel.Task);
                 return RedirectToAction("Index");
             }
-            viewModel.Categories = await _categoryrepo.GetAllCategories();
-            viewModel.Tasks = await _taskrepo.GetAllTasks();
-            viewModel.Statuses = await _taskstatusrepo.GetAllStatuses();
+            var categoryRepository = repositoryStrategy.CreateCategoryRepository();
+            var taskStatusRepository = repositoryStrategy.CreateTaskStatusRepository();
+
+            viewModel.Tasks = await taskRepository.GetAllTasks();
+            viewModel.Categories = await categoryRepository.GetAllCategories();
+            viewModel.Statuses = await taskStatusRepository.GetAllStatuses();
+            viewModel.StorageType = storageType;
 
             return View("Index", viewModel);
         }
 
-
         public async Task<IActionResult> ChangeStatus(TaskModel task)
         {
             task.TaskStatusID += 1;
-            await _taskrepo.Update(task);
 
-            return RedirectToAction("Index");
+            var storageType = _configuration["StorageType"];
+            var repositoryStrategy = _repositoryFactory.CreateRepositoryStrategy(storageType);
+            var taskRepository = repositoryStrategy.CreateTaskRepository();
+            await taskRepository.Update(task);
+
+            return RedirectToAction("Index", new { storageType });
         }
 
         public async Task<IActionResult> DeleteTask(TaskModel task)
         {
-            await _taskrepo.Delete(task);
+            var storageType = _configuration["StorageType"];
+            var repositoryStrategy = _repositoryFactory.CreateRepositoryStrategy(storageType);
+            var taskRepository = repositoryStrategy.CreateTaskRepository();
+            await taskRepository.Delete(task);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { storageType });
         }
 
         public async Task<IActionResult> UpdateTask(TaskModel task)
         {
-            await _taskrepo.Update(task);
+            var storageType = _configuration["StorageType"];
+            var repositoryStrategy = _repositoryFactory.CreateRepositoryStrategy(storageType);
+            var taskRepository = repositoryStrategy.CreateTaskRepository();
+            await taskRepository.Update(task);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { storageType });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -81,3 +110,4 @@ namespace ToDoListApplication.Controllers
         }
     }
 }
+
