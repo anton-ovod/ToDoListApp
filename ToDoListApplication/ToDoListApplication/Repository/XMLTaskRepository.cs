@@ -24,6 +24,7 @@ namespace ToDoListApplication.Repository
                     TaskID = int.Parse(t.Element("ID").Value),
                     Title = t.Element("Title").Value,
                     Description = t.Element("Description").Value,
+                    DueDate = string.IsNullOrEmpty(t.Element("DueDate").Value) ? null : DateTime.Parse(t.Element("DueDate").Value),
                     TaskCategoryID = int.Parse(t.Element("CategoryID").Value),
                     TaskStatusID = int.Parse(t.Element("StatusID").Value)
                 });
@@ -36,11 +37,18 @@ namespace ToDoListApplication.Repository
             // Load XML document
             XDocument doc = XDocument.Load(_xmlcontext.GetStoragePath());
 
+            int maxId = doc.Descendants("Task")
+                      .Select(x => (int?)x.Element("ID"))
+                      .Max() ?? 0;
+
+            // Increment the ID for the new task
+            task.TaskID = maxId + 1;
             // Add new task to XML
             XElement newTask = new XElement("Task",
                 new XElement("ID", task.TaskID),
                 new XElement("Title", task.Title),
                 new XElement("Description", task.Description),
+                new XElement("DueDate", task.DueDate),
                 new XElement("CategoryID", task.TaskCategoryID),
                 new XElement("StatusID", task.TaskStatusID));
 
@@ -65,6 +73,7 @@ namespace ToDoListApplication.Repository
                 taskToUpdate.Element("Title").Value = task.Title;
                 taskToUpdate.Element("Description").Value = task.Description;
                 taskToUpdate.Element("CategoryID").Value = task.TaskCategoryID.ToString();
+                taskToUpdate.Element("DueDate").Value = task.DueDate.ToString();
                 taskToUpdate.Element("StatusID").Value = task.TaskStatusID.ToString();
 
                 // Save changes to XML file

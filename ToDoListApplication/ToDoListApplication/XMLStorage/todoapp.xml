@@ -71,17 +71,27 @@
   </Statuses>
   <Tasks>
     <Task>
-      <ID>0</ID>
-      <Title>Test change name</Title>
-      <Description>dtdgdg</Description>
+      <ID>1</ID>
+      <Title>New Task</Title>
+      <Description>ergerg</Description>
+      <DueDate>17.05.2024 22:12:00</DueDate>
       <CategoryID>1</CategoryID>
-      <StatusID>0</StatusID>
+      <StatusID>2</StatusID>
     </Task>
     <Task>
-      <ID>0</ID>
-      <Title>new xml</Title>
-      <Description>rdgdgtdg</Description>
-      <CategoryID>5</CategoryID>
+      <ID>2</ID>
+      <Title>wewe</Title>
+      <Description>wefwer</Description>
+      <DueDate>01.05.2024 22:28:00</DueDate>
+      <CategoryID>2</CategoryID>
+      <StatusID>2</StatusID>
+    </Task>
+    <Task>
+      <ID>3</ID>
+      <Title>NEw Task</Title>
+      <Description>dgdfg</Description>
+      <DueDate>2024-05-02T22:28:00</DueDate>
+      <CategoryID>3</CategoryID>
       <StatusID>0</StatusID>
     </Task>
   </Tasks>

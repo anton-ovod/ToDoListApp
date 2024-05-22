@@ -17,13 +17,13 @@
 </style>
 
 <div class="d-flex px-2 py-4 justify-content-center align-items-center border border-2 rounded-2 border-primary flex-column" style="width: 80%">
-    <form class="d-flex fs-4 m-2" method="post" asp-action="ChangeStorageType" asp-controller="Home">
+    <form class="d-flex fs-4 m-3" method="post" asp-action="ChangeStorageType" asp-controller="Home">
         <select asp-for="StorageType">
             <option value="">Select Storage Type</option>
             <option value="Database">Database</option>
             <option value="XML">XML</option>
         </select>
-        <button type="submit">Set Storage</button>
+        <button type="submit" class="btn btn-primary fs-4">Set Storage</button>
     </form>
     <form class="w-100 d-flex" asp-controller="Home" asp-action="InsertTask">
         <div class="d-flex flex-column container-fluid gap-3">
