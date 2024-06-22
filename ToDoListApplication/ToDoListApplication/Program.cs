@@ -4,6 +4,9 @@ using GraphQL.Types;
 using ToDoListApplication.Factories.Implementations.Repository;
 using ToDoListApplication.Factories.Implementations.StorageContext;
 using ToDoListApplication.Factories.Infrastructure;
+using ToDoListApplication.GraphQL.Queries;
+using ToDoListApplication.GraphQL.Schema;
+using ToDoListApplication.GraphQL.Types;
 using ToDoListApplication.StorageContext.Infrastructure;
 using ToDoListApplication.Strategy;
 
@@ -31,8 +34,15 @@ builder.Services.AddScoped(provider =>
 builder.Services.AddScoped(provider =>
         provider.GetRequiredService<IRepositoryStrategy>().CreateTaskStatusRepository());
 
-//builder.Services.AddGraphQL(b => b.AddAutoSchema<ISchema>().AddSystemTextJson());
-//builder.Services.AddTransient<ISchema, LibrarySchema>();
+builder.Services.AddScoped<TaskQuery>();
+
+builder.Services.AddGraphQL(b => b
+    .AddSystemTextJson()
+    .AddGraphTypes(typeof(RootSchema).Assembly)
+    .AddErrorInfoProvider(opt => opt.ExposeExceptionStackTrace = builder.Environment.IsDevelopment())
+);
+
+builder.Services.AddTransient<ISchema, RootSchema>();
 
 var app = builder.Build();
 
@@ -53,6 +63,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-//app.UseGraphiQl("/graphql");
-//app.UseGraphQL<ISchema>();
+app.UseGraphiQl("/graphql");
+app.UseGraphQL<ISchema>();
 app.Run();
