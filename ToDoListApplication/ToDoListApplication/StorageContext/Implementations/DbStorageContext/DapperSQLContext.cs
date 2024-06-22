@@ -1,14 +1,15 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace ToDoListApplication.Models.Data
+using ToDoListApplication.StorageContext.Infrastructure;
+namespace ToDoListApplication.StorageContext.Implementations.DbStorageContext
 {
-    public class DapperDBContext
+    public class DapperSQLContext : IDbStorageContext
     {
         private readonly IConfiguration _configuration;
-        private readonly string _connectionString;
+        private readonly string? _connectionString;
 
-        public DapperDBContext(IConfiguration configuration)
+        public DapperSQLContext(IConfiguration configuration)
         {
             _configuration = configuration;
             _connectionString = _configuration.GetConnectionString("DatabaseConnection");

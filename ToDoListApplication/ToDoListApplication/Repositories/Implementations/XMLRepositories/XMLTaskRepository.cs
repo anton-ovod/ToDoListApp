@@ -1,21 +1,24 @@
-﻿using System.Xml.Linq;
+﻿using System.IO.IsolatedStorage;
+using System.Xml.Linq;
 using ToDoListApplication.Models;
-using ToDoListApplication.Models.Data;
+using ToDoListApplication.Repository.Infrastructure;
+using ToDoListApplication.StorageContext.Implementations.FileStorageContext;
+using ToDoListApplication.StorageContext.Infrastructure;
 
-namespace ToDoListApplication.Repository
+namespace ToDoListApplication.Repository.Implementations.XMLRepositories
 {
     public class XMLTaskRepository : ITaskRepository
     {
-        private readonly XMLStorageContext _xmlcontext;
-        public XMLTaskRepository(XMLStorageContext xmlcontext)
+        private readonly IFileStorageContext _storagecontext;
+        public XMLTaskRepository(IFileStorageContext storagecontext)
         {
-            _xmlcontext = xmlcontext;
+            _storagecontext = storagecontext;
         }
 
         public async Task<IEnumerable<TaskModel>> GetAllTasks()
         {
             // Load XML document
-            XDocument doc = XDocument.Load(_xmlcontext.GetStoragePath());
+            XDocument doc = XDocument.Load(_storagecontext.GetStoragePath());
 
             // Extract tasks from XML
             var tasks = doc.Descendants("Task")
@@ -35,36 +38,32 @@ namespace ToDoListApplication.Repository
         public async Task Insert(TaskModel task)
         {
             // Load XML document
-            XDocument doc = XDocument.Load(_xmlcontext.GetStoragePath());
-
-            int maxId = doc.Descendants("Task")
-                      .Select(x => (int?)x.Element("ID"))
-                      .Max() ?? 0;
+            XDocument doc = XDocument.Load(_storagecontext.GetStoragePath());
 
             // Increment the ID for the new task
-            task.TaskID = maxId + 1;
+            task.TaskID = Guid.NewGuid().GetHashCode();
             // Add new task to XML
             XElement newTask = new XElement("Task",
                 new XElement("ID", task.TaskID),
                 new XElement("Title", task.Title),
                 new XElement("Description", task.Description),
-                new XElement("DueDate", task.DueDate),
+                new XElement("DueDate", task.DueDate.ToString()),
                 new XElement("CategoryID", task.TaskCategoryID),
                 new XElement("StatusID", task.TaskStatusID));
 
             doc.Element("ToDoApplication").Element("Tasks").Add(newTask);
 
             // Save changes to XML file
-            doc.Save(_xmlcontext.GetStoragePath());
+            doc.Save(_storagecontext.GetStoragePath());
         }
 
         public async Task Update(TaskModel task)
         {
             // Load XML document
-            XDocument doc = XDocument.Load(_xmlcontext.GetStoragePath());
+            XDocument doc = XDocument.Load(_storagecontext.GetStoragePath());
 
             // Find task node by ID
-            XElement taskToUpdate = doc.Descendants("Task")
+            XElement? taskToUpdate = doc.Descendants("Task")
                 .SingleOrDefault(t => int.Parse(t.Element("ID").Value) == task.TaskID);
 
             if (taskToUpdate != null)
@@ -77,24 +76,24 @@ namespace ToDoListApplication.Repository
                 taskToUpdate.Element("StatusID").Value = task.TaskStatusID.ToString();
 
                 // Save changes to XML file
-                doc.Save(_xmlcontext.GetStoragePath());
+                doc.Save(_storagecontext.GetStoragePath());
             }
         }
 
         public async Task Delete(TaskModel task)
         {
             // Load XML document
-            XDocument doc = XDocument.Load(_xmlcontext.GetStoragePath());
+            XDocument doc = XDocument.Load(_storagecontext.GetStoragePath());
 
             // Find task node by ID
-            XElement taskToDelete = doc.Descendants("Task")
+            XElement? taskToDelete = doc.Descendants("Task")
                 .SingleOrDefault(t => int.Parse(t.Element("ID").Value) == task.TaskID);
 
             // Remove task node
             taskToDelete?.Remove();
 
             // Save changes to XML file
-            doc.Save(_xmlcontext.GetStoragePath());
+            doc.Save(_storagecontext.GetStoragePath());
         }
     }
 }

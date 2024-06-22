@@ -1,6 +1,6 @@
 ﻿using ToDoListApplication.Models;
 
-namespace ToDoListApplication.Repository
+namespace ToDoListApplication.Repository.Infrastructure
 {
     public interface ICategoryRepository
     {

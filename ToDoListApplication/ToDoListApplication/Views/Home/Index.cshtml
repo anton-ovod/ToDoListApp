@@ -16,15 +16,22 @@
     }
 </style>
 
+@{
+    var categoriesJson = System.Text.Json.JsonSerializer.Serialize(Model.Categories);
+    var tasksJson = System.Text.Json.JsonSerializer.Serialize(Model.Tasks);
+    var statusesJson = System.Text.Json.JsonSerializer.Serialize(Model.Statuses);
+}
+
 <div class="d-flex px-2 py-4 justify-content-center align-items-center border border-2 rounded-2 border-primary flex-column" style="width: 80%">
     <form class="d-flex fs-4 m-3" method="post" asp-action="ChangeStorageType" asp-controller="Home">
         <select asp-for="StorageType">
             <option value="">Select Storage Type</option>
-            <option value="Database">Database</option>
+            <option value="SQL">SQL</option>
             <option value="XML">XML</option>
         </select>
         <button type="submit" class="btn btn-primary fs-4">Set Storage</button>
     </form>
+
     <form class="w-100 d-flex" asp-controller="Home" asp-action="InsertTask">
         <div class="d-flex flex-column container-fluid gap-3">
             <div class="container-fluid row align-items-center">
@@ -49,9 +56,9 @@
                 <label class="fs-3 w-25 align-self-start" asp-for="@Model.Task.Description"></label>
                 <textarea class="w-75 fs-4 " rows="5" asp-for="@Model.Task.Description"></textarea>
             </div>
-            <input type="hidden" asp-for="@Model.Categories" value="@Model.Categories"/>
-            <input type="hidden" asp-for="@Model.Tasks" value="@Model.Tasks" />
-            <input type="hidden" asp-for="@Model.Statuses" value="@Model.Statuses" />
+            <input type="hidden" name="CategoriesJson" value="@categoriesJson" />
+            <input type="hidden" name="TasksJson" value="@tasksJson" />
+            <input type="hidden" name="StatusesJson" value="@statusesJson" />
             <input type="hidden" asp-for="@Model.StorageType" value="@Model.StorageType" />
             <div class="container-fluid row align-items justify-content-center center">
                 <input type="submit" class="btn btn-primary w-25 fs-4" value="Add task" />
@@ -230,24 +237,17 @@
     }
 
 function toggleUpdateForm(taskID) {
-    console.log("Toggling update form for task ID:", taskID);
 
-        var updateform = document.querySelector("#id-" + taskID + " .updateform");
-        var main = document.querySelector("#id-" + taskID + " .main");
+    var updateform = document.querySelector("#id-" + taskID + " .updateform");
+    var main = document.querySelector("#id-" + taskID + " .main");
 
-    console.log("Update Form:", updateform);
-    console.log("Main Section:", main);
-
-    if (updateform && main) {
-        if (updateform.style.display === 'none' || updateform.style.display === '') {
-            updateform.style.display = 'flex';
-            main.style.display = 'none';
-        } else {
-            main.style.display = 'flex';
-            updateform.style.display = 'none';
-        }
+    if (updateform.style.display === 'none' || updateform.style.display === '') {
+        updateform.style.display = 'flex';
+        main.style.display = 'none';
     } else {
-        console.error("Update form or main section not found.");
+        main.style.display = 'flex';
+        updateform.style.display = 'none';
     }
+
 }
 </script>

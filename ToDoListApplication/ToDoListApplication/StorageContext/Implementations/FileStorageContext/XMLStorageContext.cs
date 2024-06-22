@@ -1,12 +1,11 @@
-﻿using Microsoft.Data.SqlClient;
-using System.Data;
+﻿using ToDoListApplication.StorageContext.Infrastructure;
 
-namespace ToDoListApplication.Models.Data
+namespace ToDoListApplication.StorageContext.Implementations.FileStorageContext
 {
-    public class XMLStorageContext
+    public class XMLStorageContext : IFileStorageContext
     {
         private readonly IConfiguration _configuration;
-        private readonly string _storagePath;
+        private readonly string? _storagePath;
 
         public XMLStorageContext(IConfiguration configuration)
         {
@@ -14,7 +13,7 @@ namespace ToDoListApplication.Models.Data
             _storagePath = _configuration.GetConnectionString("XMLStoragePath");
         }
 
-        public string GetStoragePath()
+        public string? GetStoragePath()
         {
             return _storagePath;
         }

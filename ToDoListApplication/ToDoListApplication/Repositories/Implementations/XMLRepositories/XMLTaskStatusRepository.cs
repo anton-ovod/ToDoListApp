@@ -1,16 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Xml;
+﻿using System.Xml;
 using ToDoListApplication.Models;
-using ToDoListApplication.Models.Data;
+using ToDoListApplication.Repository.Infrastructure;
+using ToDoListApplication.StorageContext.Infrastructure;
 
-namespace ToDoListApplication.Repository
+namespace ToDoListApplication.Repository.Implementations.XMLRepositories
 {
     public class XMLTaskStatusRepository : ITaskStatusRepository
     {
-        private readonly XMLStorageContext _xmlcontext;
-        public XMLTaskStatusRepository(XMLStorageContext xmlcontext) 
+        private readonly IFileStorageContext _storagecontext;
+        public XMLTaskStatusRepository(IFileStorageContext storagecontext)
         {
-            _xmlcontext = xmlcontext;
+            _storagecontext = storagecontext;
         }
 
         public Task<IEnumerable<TaskStatusModel>> GetAllStatuses()
@@ -19,7 +19,7 @@ namespace ToDoListApplication.Repository
 
             // Load XML document
             XmlDocument doc = new XmlDocument();
-            doc.Load(_xmlcontext.GetStoragePath());
+            doc.Load(_storagecontext.GetStoragePath());
 
             // Select all Status nodes using XPath
             XmlNodeList statusNodes = doc.SelectNodes("/ToDoApplication/Statuses/Status");

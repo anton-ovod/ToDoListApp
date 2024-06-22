@@ -1,4 +1,4 @@
-﻿using ToDoListApplication.Repository;
+﻿using ToDoListApplication.Repository.Infrastructure;
 
 namespace ToDoListApplication.Strategy
 {

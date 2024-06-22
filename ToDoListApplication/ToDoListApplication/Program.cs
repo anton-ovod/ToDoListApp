@@ -1,26 +1,44 @@
-using ToDoListApplication.Factory;
-using ToDoListApplication.Models.Data;
-using ToDoListApplication.Repository;
+using GraphiQl;
+using GraphQL;
+using GraphQL.Types;
+using ToDoListApplication.Factories.Implementations.Repository;
+using ToDoListApplication.Factories.Implementations.StorageContext;
+using ToDoListApplication.Factories.Infrastructure;
+using ToDoListApplication.StorageContext.Infrastructure;
+using ToDoListApplication.Strategy;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddSingleton<DapperDBContext>();
-builder.Services.AddSingleton<XMLStorageContext>();
-builder.Services.AddSingleton<RepositoryFactory>();
-builder.Services.AddTransient<ITaskRepository, XMLTaskRepository>();
-builder.Services.AddTransient<ICategoryRepository, XMLCategoryRepository>();
-builder.Services.AddTransient<ITaskStatusRepository, XMLTaskStatusRepository>();
+builder.Services.AddScoped<IStorageContextFactory, StorageContextFactory>();
+builder.Services.AddScoped(provider => 
+        provider.GetRequiredService<IStorageContextFactory>().GetStorageContext());
+
+builder.Services.AddScoped<IStrategyFactory, StrategyFactory>();
+
+builder.Services.AddScoped(provider => 
+        provider.GetRequiredService<IStrategyFactory>().CreateRepositoryStrategy());
+
+builder.Services.AddScoped(provider => 
+        provider.GetRequiredService<IRepositoryStrategy>().CreateTaskRepository());
+
+builder.Services.AddScoped(provider =>
+        provider.GetRequiredService<IRepositoryStrategy>().CreateCategoryRepository());
+
+builder.Services.AddScoped(provider =>
+        provider.GetRequiredService<IRepositoryStrategy>().CreateTaskStatusRepository());
+
+//builder.Services.AddGraphQL(b => b.AddAutoSchema<ISchema>().AddSystemTextJson());
+//builder.Services.AddTransient<ISchema, LibrarySchema>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -35,4 +53,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+//app.UseGraphiQl("/graphql");
+//app.UseGraphQL<ISchema>();
 app.Run();

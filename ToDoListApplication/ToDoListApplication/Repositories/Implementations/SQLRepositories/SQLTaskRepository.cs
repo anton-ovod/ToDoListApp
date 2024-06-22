@@ -2,24 +2,26 @@
 using Microsoft.VisualBasic;
 using System.Threading.Tasks;
 using ToDoListApplication.Models;
-using ToDoListApplication.Models.Data;
+using ToDoListApplication.Repository.Infrastructure;
+using ToDoListApplication.StorageContext.Implementations.DbStorageContext;
+using ToDoListApplication.StorageContext.Infrastructure;
 
-namespace ToDoListApplication.Repository
+namespace ToDoListApplication.Repository.Implementations.SQLRepositories
 {
-    public class DBTaskRepository : ITaskRepository
+    public class SQLTaskRepository : ITaskRepository
     {
-        private readonly DapperDBContext _dbcontext;
+        private readonly IDbStorageContext _storagecontext;
 
-        public DBTaskRepository(DapperDBContext dbcontext)
+        public SQLTaskRepository(IDbStorageContext storagecontext)
         {
-            _dbcontext = dbcontext;
+            _storagecontext = storagecontext;
         }
 
         public async Task Delete(TaskModel task)
         {
             var query = "Delete From Task Where TaskID=@TaskID";
 
-            using(var connection = _dbcontext.CreateConnection()) 
+            using (var connection = _storagecontext.CreateConnection())
             {
                 await connection.ExecuteAsync(query, task);
             }
@@ -28,7 +30,7 @@ namespace ToDoListApplication.Repository
         public async Task<IEnumerable<TaskModel>> GetAllTasks()
         {
             var query = "Select TaskID, Title, Description, DueDate, TaskStatusID, TaskCategoryID from Task";
-            using(var connection = _dbcontext.CreateConnection())
+            using (var connection = _storagecontext.CreateConnection())
             {
                 var tasklist = await connection.QueryAsync<TaskModel>(query);
                 return tasklist.ToList();
@@ -40,7 +42,7 @@ namespace ToDoListApplication.Repository
             var query = "insert into Task (Title, Description, DueDate, TaskStatusID, TaskCategoryID)" +
                 " values (@Title, @Description, @DueDate, @TaskStatusID, @TaskCategoryID)";
 
-            using( var connection = _dbcontext.CreateConnection())
+            using (var connection = _storagecontext.CreateConnection())
             {
                 await connection.ExecuteAsync(query, task);
             }
@@ -48,11 +50,11 @@ namespace ToDoListApplication.Repository
 
         public async Task Update(TaskModel task)
         {
-            var query = "UPDATE Task "+
-                        "SET Title=@Title, Description=@Description, DueDate=@DueDate, TaskStatusID=@TaskStatusID, TaskCategoryID=@TaskCategoryID "+
+            var query = "UPDATE Task " +
+                        "SET Title=@Title, Description=@Description, DueDate=@DueDate, TaskStatusID=@TaskStatusID, TaskCategoryID=@TaskCategoryID " +
                         "WHERE TaskID=@TaskID";
 
-            using(var connection = _dbcontext.CreateConnection())
+            using (var connection = _storagecontext.CreateConnection())
             {
                 await connection.ExecuteAsync(query, task);
             }

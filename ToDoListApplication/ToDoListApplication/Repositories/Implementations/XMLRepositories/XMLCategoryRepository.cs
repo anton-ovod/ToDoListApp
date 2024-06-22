@@ -1,15 +1,17 @@
 ﻿using System.Xml;
 using ToDoListApplication.Models;
-using ToDoListApplication.Models.Data;
+using ToDoListApplication.Repository.Infrastructure;
+using ToDoListApplication.StorageContext.Implementations.FileStorageContext;
+using ToDoListApplication.StorageContext.Infrastructure;
 
-namespace ToDoListApplication.Repository
+namespace ToDoListApplication.Repository.Implementations.XMLRepositories
 {
     public class XMLCategoryRepository : ICategoryRepository
     {
-        private readonly XMLStorageContext _xmlcontext;
-        public XMLCategoryRepository(XMLStorageContext xmlcontext)
+        private readonly IFileStorageContext _storagecontext;
+        public XMLCategoryRepository(IFileStorageContext storagecontext)
         {
-            _xmlcontext = xmlcontext;
+            _storagecontext = storagecontext;
         }
         public Task<IEnumerable<CategoryModel>> GetAllCategories()
         {
@@ -17,10 +19,10 @@ namespace ToDoListApplication.Repository
 
             // Load XML document
             XmlDocument doc = new XmlDocument();
-            doc.Load(_xmlcontext.GetStoragePath());
+            doc.Load(_storagecontext.GetStoragePath());
 
             // Select all Category nodes using XPath
-            XmlNodeList categoryNodes = doc.SelectNodes("/ToDoApplication/Categories/Category");
+            XmlNodeList? categoryNodes = doc.SelectNodes("/ToDoApplication/Categories/Category");
 
             foreach (XmlNode categoryNode in categoryNodes)
             {
