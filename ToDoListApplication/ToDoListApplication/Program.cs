@@ -7,14 +7,36 @@ using ToDoListApplication.Factories.Infrastructure;
 using ToDoListApplication.GraphQL.Queries;
 using ToDoListApplication.GraphQL.Schema;
 using ToDoListApplication.GraphQL.Types;
+using ToDoListApplication.Middlewares;
+using ToDoListApplication.Providers;
+using ToDoListApplication.StorageContext.Implementations.DbStorageContext;
+using ToDoListApplication.StorageContext.Implementations.FileStorageContext;
 using ToDoListApplication.StorageContext.Infrastructure;
 using ToDoListApplication.Strategy;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:7053")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
+
+
+builder.Services.AddSingleton<StorageTypeProvider>();
+
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<DapperSQLContext>();
+builder.Services.AddScoped<XMLStorageContext>();
+
 
 builder.Services.AddScoped<IStorageContextFactory, StorageContextFactory>();
 builder.Services.AddScoped(provider => 
@@ -33,8 +55,6 @@ builder.Services.AddScoped(provider =>
 
 builder.Services.AddScoped(provider =>
         provider.GetRequiredService<IRepositoryStrategy>().CreateTaskStatusRepository());
-
-builder.Services.AddScoped<TaskQuery>();
 
 builder.Services.AddGraphQL(b => b
     .AddSystemTextJson()
@@ -55,7 +75,12 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseMiddleware<StorageTypeMiddleware>();
+
 app.UseRouting();
+
+app.UseCors("CorsPolicy"); // Enable CORS
+
 
 app.UseAuthorization();
 

@@ -18,8 +18,8 @@ namespace ToDoListApplication.Factories.Implementations.Repository
 
         public IRepositoryStrategy CreateRepositoryStrategy()
         {
-            var storageType = _httpContextAccessor.HttpContext?.Request.Cookies["Storage-Type"];
-
+            //var storageType = _httpContextAccessor.HttpContext?.Items["Storage-Type"];
+            var storageType = _httpContextAccessor.HttpContext?.Request.Headers["Storage-Type"].ToString();
             return storageType switch
             {
                 "XML" => new XMLRepositoryStrategy((IFileStorageContext)_storagecontext),

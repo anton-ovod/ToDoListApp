@@ -17,25 +17,32 @@ namespace ToDoListApplication.Repository.Implementations.XMLRepositories
         {
             var categories = new List<CategoryModel>();
 
-            // Load XML document
-            XmlDocument doc = new XmlDocument();
-            doc.Load(_storagecontext.GetStoragePath());
-
-            // Select all Category nodes using XPath
-            XmlNodeList? categoryNodes = doc.SelectNodes("/ToDoApplication/Categories/Category");
-
-            foreach (XmlNode categoryNode in categoryNodes)
+            try
             {
-                var category = new CategoryModel
-                {
-                    TaskCategoryID = int.Parse(categoryNode.SelectSingleNode("ID").InnerText),
-                    TaskCategoryName = categoryNode.SelectSingleNode("Name").InnerText,
-                    Description = categoryNode.SelectSingleNode("Description").InnerText
-                };
-                categories.Add(category);
-            }
+                // Load XML document
+                XmlDocument doc = new XmlDocument();
+                doc.Load(_storagecontext.GetStoragePath());
 
-            return Task.FromResult(categories.AsEnumerable());
+                // Select all Category nodes using XPath
+                XmlNodeList categoryNodes = doc.SelectNodes("/ToDoApplication/Categories/Category");
+
+                foreach (XmlNode categoryNode in categoryNodes)
+                {
+                    var category = new CategoryModel
+                    {
+                        TaskCategoryID = int.Parse(categoryNode.SelectSingleNode("ID").InnerText),
+                        TaskCategoryName = categoryNode.SelectSingleNode("Name").InnerText,
+                        Description = categoryNode.SelectSingleNode("Description").InnerText
+                    };
+                    categories.Add(category);
+                }
+
+                return Task.FromResult(categories.AsEnumerable());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error parsing XML and fetching categories: {ex.Message}");
+            }
         }
     }
 }

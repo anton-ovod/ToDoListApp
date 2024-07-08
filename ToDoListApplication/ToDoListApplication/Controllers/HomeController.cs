@@ -4,6 +4,8 @@ using ToDoListApplication.Models;
 using ToDoListApplication.ViewModels;
 using ToDoListApplication.Repository.Infrastructure;
 using Newtonsoft.Json;
+using ToDoListApplication.Enums;
+using ToDoListApplication.Providers;
 
 namespace ToDoListApplication.Controllers
 {
@@ -12,13 +14,16 @@ namespace ToDoListApplication.Controllers
         private readonly ITaskRepository _taskRepository;
         private readonly ITaskStatusRepository _taskStatusRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly StorageTypeProvider _storageTypeProvider;
 
         public HomeController(ITaskRepository taskRepository, ITaskStatusRepository taskStatusRepository,
-                              ICategoryRepository categoryRepository)
+                              ICategoryRepository categoryRepository,
+                              StorageTypeProvider storageTypeProvider)
         {
             _taskRepository = taskRepository;
             _taskStatusRepository = taskStatusRepository;
             _categoryRepository = categoryRepository; 
+            _storageTypeProvider = storageTypeProvider;
         }
 
         [HttpGet]
@@ -29,28 +34,29 @@ namespace ToDoListApplication.Controllers
             viewModel.Tasks = await _taskRepository.GetAllTasks();
             viewModel.Statuses = await _taskStatusRepository.GetAllStatuses();
             viewModel.Categories = await _categoryRepository.GetAllCategories();
-            viewModel.StorageType = Request.Cookies["Storage-Type"]?.ToString() ?? "SQL";
-
+            viewModel.CurrentStorageType = HttpContext.Items["Storage-Type"]?.ToString() ?? "SQL";
+            viewModel.StorageTypes = Enum.GetNames(typeof(StorageType)).ToList();
             return View(viewModel);
         }
 
         [HttpPost]
         public IActionResult ChangeStorageType(string storageType)
         {
-            Response.Cookies.Append("Storage-Type", storageType);
+            _storageTypeProvider.StorageType = storageType;
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertTask(
-    string CategoriesJson,
-    string TasksJson,
-    string StatusesJson,
-    IndexViewModel viewModel)
+        public async Task<IActionResult> InsertTask(string CategoriesJson,
+                                                    string TasksJson,
+                                                    string StatusesJson,
+                                                    string StorageTypesJson,
+                                                    IndexViewModel viewModel)
         {
             viewModel.Categories = JsonConvert.DeserializeObject<List<CategoryModel>>(CategoriesJson);
             viewModel.Tasks = JsonConvert.DeserializeObject<List<TaskModel>>(TasksJson);
             viewModel.Statuses = JsonConvert.DeserializeObject<List<TaskStatusModel>>(StatusesJson);
+            viewModel.StorageTypes = JsonConvert.DeserializeObject<List<string>>(StorageTypesJson);
 
             if (ModelState.IsValid)
             {
@@ -70,7 +76,7 @@ namespace ToDoListApplication.Controllers
 
         public async Task<IActionResult> DeleteTask(TaskModel task)
         {
-            await _taskRepository.Delete(task);
+            await _taskRepository.DeleteById(task.TaskID);
             return RedirectToAction("Index");
         }
 

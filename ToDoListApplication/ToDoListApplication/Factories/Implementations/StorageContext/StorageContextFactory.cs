@@ -1,5 +1,4 @@
-﻿using Azure;
-using ToDoListApplication.Factories.Infrastructure;
+﻿using ToDoListApplication.Factories.Infrastructure;
 using ToDoListApplication.StorageContext.Implementations.DbStorageContext;
 using ToDoListApplication.StorageContext.Implementations.FileStorageContext;
 using ToDoListApplication.StorageContext.Infrastructure;
@@ -20,22 +19,19 @@ namespace ToDoListApplication.Factories.Implementations.StorageContext
 
         public IStorageContext GetStorageContext()
         {
-            var response = _httpContextAccessor.HttpContext?.Response;
-            var request = _httpContextAccessor.HttpContext?.Request;
-
-            var storageType = "SQL";
-
-            if (request is not null &&
-                !string.IsNullOrEmpty(request.Cookies["Storage-Type"]))
+            var httpContext = _httpContextAccessor.HttpContext;
+            if (httpContext == null)
             {
-                storageType = request.Cookies["Storage-Type"];
+                throw new InvalidOperationException("HttpContext is null.");
             }
-            else response.Cookies.Append("Storage-Type", storageType);
 
-            return storageType.ToString() switch
+            //var storageType = httpContext.Items["Storage-Type"];
+            var storageType = httpContext.Request.Headers["Storage-Type"].ToString();
+
+            return storageType switch
             {
-                "SQL" => new DapperSQLContext(_serviceProvider.GetRequiredService<IConfiguration>()),
-                "XML" => new XMLStorageContext(_serviceProvider.GetRequiredService<IConfiguration>()),
+                "SQL" => _serviceProvider.GetRequiredService<DapperSQLContext>(),
+                "XML" => _serviceProvider.GetRequiredService<XMLStorageContext>(),
                 _ => throw new ArgumentException("Invalid storage type", nameof(storageType))
             };
         }

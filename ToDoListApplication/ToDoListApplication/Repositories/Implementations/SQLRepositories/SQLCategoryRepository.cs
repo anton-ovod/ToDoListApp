@@ -16,11 +16,19 @@ namespace ToDoListApplication.Repository.Implementations.SQLRepositories
 
         public async Task<IEnumerable<CategoryModel>> GetAllCategories()
         {
-            var query = "Select TaskCategoryID, TaskCategoryName, Description from TaskCategory";
-            using (var connection = _storagecontext.CreateConnection())
+            try
             {
-                var tasklist = await connection.QueryAsync<CategoryModel>(query);
-                return tasklist.ToList();
+                var query = "Select TaskCategoryID, TaskCategoryName, Description from TaskCategory";
+                using (var connection = _storagecontext.CreateConnection())
+                {
+                    var tasklist = await connection.QueryAsync<CategoryModel>(query);
+                    return tasklist.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                throw new Exception($"Error fetching categories from database: {ex.Message}");
             }
         }
     }

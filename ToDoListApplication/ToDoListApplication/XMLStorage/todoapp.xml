@@ -71,43 +71,43 @@
   </Statuses>
   <Tasks>
     <Task>
-      <ID>-1521689203</ID>
-      <Title>New Task Xml</Title>
-      <Description>wwrgwrg</Description>
-      <DueDate>04.06.2024 17:04:00</DueDate>
-      <CategoryID>2</CategoryID>
-      <StatusID>0</StatusID>
-    </Task>
-    <Task>
-      <ID>-1339804184</ID>
-      <Title>New  Task xml2</Title>
-      <Description>rgerg</Description>
-      <DueDate>11.02.2024 17:02:00</DueDate>
+      <ID>bdc485b6-782b-4516-aae1-5cb226e8cc0c</ID>
+      <Title>rgrtg</Title>
+      <Description>rthrth</Description>
+      <DueDate>09.07.2024 00:53:00</DueDate>
       <CategoryID>3</CategoryID>
-      <StatusID>0</StatusID>
+      <StatusID>2</StatusID>
     </Task>
     <Task>
-      <ID>-1078378506</ID>
-      <Title>sdvsv</Title>
-      <Description>sdvsvsdv</Description>
-      <DueDate>18.03.2024 17:03:00</DueDate>
-      <CategoryID>4</CategoryID>
-      <StatusID>0</StatusID>
+      <ID>7c33f6ae-d2e2-47ca-8f29-ce5be4db295d</ID>
+      <Title>tyhthtyhtyh</Title>
+      <Description>tyhtyhtyh</Description>
+      <DueDate>20.07.2024 04:12:00</DueDate>
+      <CategoryID>6</CategoryID>
+      <StatusID>1</StatusID>
     </Task>
     <Task>
-      <ID>-2130951082</ID>
-      <Title>sdvsdvsdvsdv</Title>
-      <Description>sdsvsdv</Description>
-      <DueDate>2024-06-07T17:04:00</DueDate>
-      <CategoryID>3</CategoryID>
-      <StatusID>0</StatusID>
+      <ID>ddb3f686-765c-4cfb-9090-ce9f809d2574</ID>
+      <Title>вркеркеркр</Title>
+      <Description>fgfgh</Description>
+      <DueDate>17.07.2024 01:30:00</DueDate>
+      <CategoryID>1</CategoryID>
+      <StatusID>1</StatusID>
     </Task>
     <Task>
-      <ID>653229150</ID>
-      <Title>xxbdfb</Title>
-      <Description>dfbdfb</Description>
-      <DueDate>12.06.2024 17:06:00</DueDate>
-      <CategoryID>3</CategoryID>
+      <ID>854c2a8a-bf40-48c7-8b7b-fea2283b8eaa</ID>
+      <Title>кекер</Title>
+      <Description>fghfgh</Description>
+      <DueDate>17.07.2024 01:31:00</DueDate>
+      <CategoryID>8</CategoryID>
+      <StatusID>1</StatusID>
+    </Task>
+    <Task>
+      <ID>4e7c920d-639f-4361-b22f-0fd399a1cce3</ID>
+      <Title>dfvdfvd</Title>
+      <Description>fghfgh</Description>
+      <DueDate>15.08.2024 01:31:00</DueDate>
+      <CategoryID>8</CategoryID>
       <StatusID>0</StatusID>
     </Task>
   </Tasks>

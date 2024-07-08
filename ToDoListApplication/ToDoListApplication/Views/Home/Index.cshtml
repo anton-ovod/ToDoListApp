@@ -20,14 +20,17 @@
     var categoriesJson = System.Text.Json.JsonSerializer.Serialize(Model.Categories);
     var tasksJson = System.Text.Json.JsonSerializer.Serialize(Model.Tasks);
     var statusesJson = System.Text.Json.JsonSerializer.Serialize(Model.Statuses);
+    var storageTypesJson = System.Text.Json.JsonSerializer.Serialize(Model.StorageTypes);
 }
 
 <div class="d-flex px-2 py-4 justify-content-center align-items-center border border-2 rounded-2 border-primary flex-column" style="width: 80%">
     <form class="d-flex fs-4 m-3" method="post" asp-action="ChangeStorageType" asp-controller="Home">
-        <select asp-for="StorageType">
+        <select asp-for="CurrentStorageType" name="storageType">
             <option value="">Select Storage Type</option>
-            <option value="SQL">SQL</option>
-            <option value="XML">XML</option>
+            @foreach (var type in @Model.StorageTypes)
+            {
+                <option value="@type.ToString()">@type.ToString()</option>
+            }
         </select>
         <button type="submit" class="btn btn-primary fs-4">Set Storage</button>
     </form>
@@ -59,7 +62,8 @@
             <input type="hidden" name="CategoriesJson" value="@categoriesJson" />
             <input type="hidden" name="TasksJson" value="@tasksJson" />
             <input type="hidden" name="StatusesJson" value="@statusesJson" />
-            <input type="hidden" asp-for="@Model.StorageType" value="@Model.StorageType" />
+            <input type="hidden" name="StorageTypesJson" value="@storageTypesJson" />
+            <input type="hidden" asp-for="@Model.CurrentStorageType" value="@Model.CurrentStorageType" />
             <div class="container-fluid row align-items justify-content-center center">
                 <input type="submit" class="btn btn-primary w-25 fs-4" value="Add task" />
             </div>
@@ -109,7 +113,7 @@
                 </div>
 
                 <div class="col text-center">
-                    <div class="btn border-0 fs-4" onclick="toggleUpdateForm(@task.TaskID)">
+                    <div class="btn border-0 fs-4" onclick="toggleUpdateForm('@task.TaskID')">
                         <img src="./pencil.svg" width="25" />
                     </div>
                     <a class="btn border-0 fs-4" href="@Url.Action("DeleteTask", "Home", task)">
@@ -138,7 +142,7 @@
                         <input asp-for="@task.Title" value="@task.Title" class="col m-0 fs-4" />
                     
                         <select asp-for="@task.TaskCategoryID" class="col form-select fs-4 m-0">
-                            <option value="" selected>Choose Category</option>
+                            <option value="">Choose Category</option>
                             @foreach (var category in Model.Categories)
                             {
                                 @if(@category.TaskCategoryID == task.TaskCategoryID)
@@ -151,13 +155,13 @@
                                 }
                             }
                         </select>
-                        @if(task.DueDate is not null){
-                            <input class="col fs-4 h-auto w-auto m-0" asp-for="@task.DueDate" value=@task.DueDate.Value.ToString("yyyy-mm-ddTHH:mm")/>
+                        @if (@task.DueDate != null)
+                        {
+                            <input class="col fs-4 h-auto w-auto m-0" asp-for="@task.DueDate" value="@task.DueDate.Value.ToString("yyyy-MM-ddTHH:mm")" />
                         }
                         else
                         {
-                            <input class="col fs-4 h-auto w-auto m-0" asp-for="@task.DueDate" />
-
+                            <input class="col fs-4 h-auto w-auto m-0" asp-for="@task.DueDate" value="" />
                         }
                         <input type="submit" class="btn btn-primary text-center fs-5 m-0 col h-100" value="Apply Changes"/>
                         <input type="hidden" asp-for="@task.TaskID" value="@task.TaskID" />
@@ -236,18 +240,31 @@
         }
     }
 
-function toggleUpdateForm(taskID) {
+    function toggleUpdateForm(taskID) 
+    {
+        console.log(taskID);  // Log the taskID to ensure it is being passed correctly
+        var container = document.querySelector("#id-" + taskID);
 
-    var updateform = document.querySelector("#id-" + taskID + " .updateform");
-    var main = document.querySelector("#id-" + taskID + " .main");
+        if (!container) {
+            console.error("Container with id 'id-" + taskID + "' not found.");
+            return;
+        }
 
-    if (updateform.style.display === 'none' || updateform.style.display === '') {
-        updateform.style.display = 'flex';
-        main.style.display = 'none';
-    } else {
-        main.style.display = 'flex';
-        updateform.style.display = 'none';
+        var updateform = container.querySelector(".updateform");
+        var main = container.querySelector(".main");
+
+        if (!updateform || !main) {
+            console.error("Elements with classes 'updateform' or 'main' not found within container 'id-" + taskID + "'.");
+            return;
+        }
+
+        if (updateform.style.display === 'none' || updateform.style.display === '') {
+            updateform.style.display = 'flex';
+            main.style.display = 'none';
+        } else {
+            main.style.display = 'flex';
+            updateform.style.display = 'none';
+        }
     }
 
-}
 </script>

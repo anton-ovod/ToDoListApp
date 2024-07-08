@@ -16,12 +16,18 @@ namespace ToDoListApplication.Repository.Implementations.SQLRepositories
 
         public async Task<IEnumerable<TaskStatusModel>> GetAllStatuses()
         {
-            var query = "Select TaskStatusID, TaskStatusName, Description from TaskStatus";
-
-            using (var connection = _storagecontext.CreateConnection())
+            try
             {
-                var statusesList = await connection.QueryAsync<TaskStatusModel>(query);
-                return statusesList.ToList();
+                var query = "Select TaskStatusID, TaskStatusName, Description from TaskStatus";
+                using (var connection = _storagecontext.CreateConnection())
+                {
+                    var statusesList = await connection.QueryAsync<TaskStatusModel>(query);
+                    return statusesList.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error fetching task statuses from database: {ex.Message}");
             }
         }
     }

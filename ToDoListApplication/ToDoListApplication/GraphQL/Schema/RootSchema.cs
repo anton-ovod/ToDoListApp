@@ -1,4 +1,5 @@
-﻿using ToDoListApplication.GraphQL.Queries;
+﻿using ToDoListApplication.GraphQL.Mutations;
+using ToDoListApplication.GraphQL.Queries;
 using GraphQlTypes = GraphQL.Types;
 namespace ToDoListApplication.GraphQL.Schema
 {
@@ -7,6 +8,7 @@ namespace ToDoListApplication.GraphQL.Schema
         public RootSchema(IServiceProvider provider) : base(provider)
         {
             Query = provider.GetRequiredService<RootQuery>();
+            Mutation = provider.GetRequiredService<RootMutation>();
         }
     }
 }
